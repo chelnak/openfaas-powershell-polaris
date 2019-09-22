@@ -52,6 +52,44 @@ Refer to the [source code](https://github.com/PowerShell/Polaris/blob/master/lib
 | -----|---------|-------------|
 | POLARIS_CUSTOM_ROUTE | / | A custom path to append to the server root |
 
+## Example
+
+An out of the box build from this template will give you the following:
+
+1. A `GET` route at / that responds with `Hello! Welcome to openfaas-powershell-polaris`
+2. A `POST` route at / that expects a json string with a name property and will respond with `Hello <name>! Welcome to openfaas-powershell-polaris`
+3. A `GET` route at /status that resonds with some basic information such asthe version of both PowerShell and the Polaris module running in the container.
+
+### Getting set up
+
+Create a new directory and pull the template
+
+```Bash
+mkdir faas
+cd faas
+faas-cli template pull https://github.com/chelnak/openfaas-powershell-polaris
+```
+
+Initialize a new function
+
+```Bash
+faas-cli new --lang powershell-polaris polaris-example --prefix <docker_username>
+```
+
+Modify the stack file, if required. E.g. to add the `POLARIS_CUSTOM_ROUTE` environment variable
+
+Build, push and deploy the function
+
+```Bash
+faas-cli up -f polaris-example.yml
+```
+
+Assuming that you are running OpenFAAS in Kubernetes and have a port-forward set up to the gateway service on port 8080 you can test the function like this:
+
+```PowerShell
+Invoke-RestMethod -Method GET -Uri http://localhost:8080/function/polaris-example/status
+```
+
 ## Contributing
 
 Contributions of any kind welcome.
