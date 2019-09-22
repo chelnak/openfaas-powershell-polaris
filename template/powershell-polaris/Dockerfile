@@ -8,17 +8,14 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY polaris.ps1 polaris.ps1
-
 COPY function function
-
-HEALTHCHECK --interval=1s CMD [ -e /tmp/.lock ] || exit 1
 
 RUN pwsh -c Install-Module -Name Polaris -Force
 
 ENV fprocess="pwsh ./polaris.ps1"
 ENV mode="http"
-ENV upstream_url="http://127.0.0.1:8082"
-ENV OF_PORT="8888"
+ENV POLARIS_PORT=8888
+ENV upstream_url="http://127.0.0.1:${POLARIS_PORT}"
 
 EXPOSE 8080
 CMD ["fwatchdog"]
