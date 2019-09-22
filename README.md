@@ -1,8 +1,8 @@
 # openfaas-powershell-polaris
 
-This is an [OpenFAAS](https://www.openfaas.com/) language template for a http based PowerShell function using the [Polaris](https://github.com/PowerShell/Polaris) web server.
-
 > :construction: This template is new and may contain bugs
+
+This is an [OpenFAAS](https://www.openfaas.com/) language template for a http based PowerShell function using the [Polaris](https://github.com/PowerShell/Polaris) web server.
 
 Functions built with this template will respond to `GET` and `POST` requests. These requests will be handled by `handler.ps1`. For now, this is where you need to add your custom logic.
 
@@ -44,7 +44,7 @@ SetStream
 GetContentType
 ```
 
-https://github.com/PowerShell/Polaris/blob/master/lib/PolarisResponse.Class.ps1
+Refer to the [source code](https://github.com/PowerShell/Polaris/blob/master/lib/PolarisResponse.Class.ps1) for more information.
 
 ## Configuration
 
