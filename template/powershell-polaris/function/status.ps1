@@ -1,12 +1,13 @@
 try {
     $VersionInfo = [PSCustomObject]@{
-        Server = "OK"
-        PowerShell =  $PSVersionTable | ConvertTo-Json -Depth 10
-        Polaris = (Get-Module -Name Polaris).Version
-    }
+        Server     = "OK"
+        PowerShell = $PSVersionTable.PSVersion.ToString()
+        Polaris    = (Get-Module -Name Polaris).Version.ToString()
+    } | ConvertTo-Json -Depth 10
 
     $Response.Send($VersionInfo)
-} catch {
+}
+catch {
     $Response.SetStatusCode(500)
     $Response.Send("Could not retrieve server status: $_")
 }
