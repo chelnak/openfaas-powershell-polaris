@@ -14,8 +14,7 @@ RUN pwsh -c Install-Module -Name Polaris -Force
 
 ENV fprocess="pwsh ./polaris.ps1"
 ENV mode="http"
-ENV POLARIS_PORT=8888
-ENV upstream_url="http://127.0.0.1:${POLARIS_PORT}"
+ENV upstream_url="http://127.0.0.1:8888"
 
 EXPOSE 8080
 CMD ["fwatchdog"]
