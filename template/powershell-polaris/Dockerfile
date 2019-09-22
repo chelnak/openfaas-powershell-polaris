@@ -10,7 +10,7 @@ RUN apt-get update \
 COPY polaris.ps1 polaris.ps1
 COPY function function
 
-RUN pwsh -c Install-Module -Name Polaris -Force
+RUN pwsh -c Install-Module -Name Polaris -RequiredVersion 0.2.0 -Force
 
 ENV fprocess="pwsh ./polaris.ps1"
 ENV mode="http"
