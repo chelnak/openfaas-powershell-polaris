@@ -2,7 +2,11 @@
 
 > :construction: This template is new and may contain bugs
 
-This is an [OpenFAAS](https://www.openfaas.com/) language template for a http based PowerShell function using the [Polaris](https://github.com/PowerShell/Polaris) web server.
+An
+@openfaas
+ #PowerShell http based function using the Polaris web server
+
+This is an [OpenFAAS](https://www.openfaas.com/) language template for a PowerShell based http function using the [Polaris](https://github.com/PowerShell/Polaris) web server.
 
 Functions built with this template will respond to `GET` and `POST` requests. These requests will be handled by `handler.ps1`. For now, this is where you need to add your custom logic.
 
